@@ -94,6 +94,9 @@ if(filterInput($_POST["submit"]) == "createProduct") {
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
+} else {
+  header('Location: ../');
+  exit;
 }
 
 mysqli_close($conn);

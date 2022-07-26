@@ -315,10 +315,17 @@
                         <span class="text-secondary text-xs font-weight-bold">${respostaAjax[key]["create_data"]}</span>
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <a class="btn btn-link text-secondary font-weight-bold text-xs mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</a>
-                        <a class="btn btn-link text-danger font-weight-bold text-xs mb-0" href="javascript:;"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</a>
+                        <form method="post" action="../actions/updateActions.php" enctype="multipart/form-data">
+                          <input type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
+                          <button type="submit" name="submit" value="updateCategory" class="btn btn-link text-secondary font-weight-bold text-xs mb-0"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</button>
+                        </form>
+                        <form method="post" action="../actions/deleteActions.php" enctype="multipart/form-data">
+                          <input type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
+                          <button type="submit" name="submit" value="deleteCategory" class="btn btn-link text-danger font-weight-bold text-xs mb-0"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</button>
+                        </form>
                       </td>
-                    </tr>`);
+                    </tr>
+                    `);
         });
       }
     }
