@@ -182,46 +182,55 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <form>
+      <form method="post" action="../actions/createActions.php" enctype="multipart/form-data">
         <div class="row mb-2">
           <div class="col">
-            <label class="form-label" for="form6Example3">Nome</label>
-            <input type="text" id="form6Example3" class="form-control" placeholder="Ex: Hamburguer de Picanha" />
+            <label class="form-label" for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control" placeholder="Ex: Hamburguer de Picanha" />
           </div>
           <div class="col">
-            <label class="form-label" for="form6Example6">Valor</label>
-            <input type="number" id="form6Example6" class="form-control" placeholder="Ex: 14.90" />
+            <label class="form-label" for="valor">Valor</label>
+            <input type="number" id="valor" name="valor" class="form-control" placeholder="Ex: 14.90" />
           </div>
         </div>
-      
+
         <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example5">Categoria</label>
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <option value="false" selected>Clique para escolher</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <label class="form-label" for="categoria">Categoria</label>
+          <select name="categoria" id="categoria" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <?php
+              require_once("../actions/database.php");
+              $sql = "SELECT * FROM categorias";
+              $result = mysqli_query($conn, $sql);
+
+              if (mysqli_num_rows($result) < 1) {
+                echo '<option value="0">Crie uma categoria primeiro</option>';
+              } else {
+                while($row = mysqli_fetch_assoc($result)) {
+                  echo '<option value="'.$row["id"].'" selected>'.$row["name"].'</option>';
+                }
+              }
+            ?>  
           </select>
         </div>
 
         <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example5">Foto do Produto</label>
-          <input type="file" class="form-control" id="inputGroupFile02">
+          <label class="form-label" for="image">Foto do Produto</label>
+          <input type="file" class="image" name="image" id="inputGroupFile02">
         </div>
-      
+
         <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example7">Descrição</label>
-          <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+          <label class="form-label" for="descricao">Descrição</label>
+          <textarea class="form-control" name="descricao" id="descricao" rows="4"></textarea>
         </div>
 
         <div class="form-check mb-3 form-switch">
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
-          <label class="form-check-label" actived for="flexSwitchCheckDefault">Produto disponivel</label>
+          <input class="form-check-input" name="ativado" type="checkbox" id="ativado" checked>
+          <label class="form-check-label" actived for="ativado">Produto disponivel</label>
         </div>
-      
-        <button type="submit" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+
+        <button type="submit" name="submit" value="createProduct" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
-      <footer class="footer pt-3  ">
+      <footer class="footer pt-3">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-2">
@@ -239,6 +248,31 @@
       </footer>
     </div>
   </main>
+  <?php 
+    if (isset($_GET["error"])){
+      if ($_GET["error"] == "missingArguments" ) {
+        echo "<script>
+          alert('Você precisa preencher todos os campos')
+        </script>";
+      } elseif ($_GET["error"] == "noImage" ) {
+        echo "<script>
+          alert('Você deve fazer upload da imagem')
+        </script>";
+      } elseif ($_GET["error"] == "incorrectImage" ) {
+        echo "<script>
+          alert('A imagem precisa ser .jpg, .png, .jpeg ou .gif')
+        </script>";
+      } elseif ($_GET["error"] == "errorCategory" ) {
+        echo "<script>
+          alert('Crie uma categoria antes de criar seu produto')
+        </script>";
+      } elseif ($_GET["error"] == "errorUnknown" ) {
+        echo "<script>
+          alert('Ocorreu um erro no produto, por favor informar ao suporte!')
+        </script>";
+      }
+    }
+  ?>
   <!--   Core JS Files   -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>

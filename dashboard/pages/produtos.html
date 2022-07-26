@@ -237,7 +237,7 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     let ajax = new XMLHttpRequest();
-    ajax.open('post', 'http://localhost/dashboard/actions/getDados.php');
+    ajax.open('post', 'http://192.168.18.85/dashboard/actions/getDados.php');
     ajax.onreadystatechange = function () {
       if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
         let respostaAjax = JSON.parse(ajax.responseText);
@@ -253,7 +253,7 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="${respostaAjax[key]["image"]}" class="avatar avatar-sm me-3" alt="${respostaAjax[key]["image"]}">
+                            <img src="../images/produtos/produto${respostaAjax[key]["id"]}.png" class="avatar avatar-sm me-3">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
                             <h6 class="mb-0 text-sm">${respostaAjax[key]["name"]}</h6>

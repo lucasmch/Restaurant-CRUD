@@ -233,7 +233,7 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     let ajax = new XMLHttpRequest();
-    ajax.open('post', 'http://localhost/dashboard/actions/getDados.php');
+    ajax.open('post', 'http://192.168.18.85/dashboard/actions/getDados.php');
     ajax.onreadystatechange = function () {
       if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
         let respostaAjax = JSON.parse(ajax.responseText)[0];

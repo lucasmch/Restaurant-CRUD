@@ -5,7 +5,8 @@ $dados = json_decode(file_get_contents('php://input'), true);
 $res = [];
 
 if(!$dados) {
-  $dados = "Config";
+  header('Location: ../');
+  exit;
 }
 
 if($dados == "Dashboard") {

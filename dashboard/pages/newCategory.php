@@ -182,25 +182,25 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <form>
+    <form method="post" action="../actions/createActions.php" enctype="multipart/form-data">
         <div class="row mb-4">
           <div class="col">
             <label class="form-label" for="form6Example3">Nome</label>
-            <input type="text" id="form6Example3" class="form-control" placeholder="Ex: Pizzas" />
+            <input type="text" id="form6Example3" name="nome" class="form-control" placeholder="Ex: Pizzas" />
           </div>
         </div>
 
         <div class="form-outline mb-4">
           <label class="form-label" for="form6Example5">Foto da Categoria</label>
-          <input type="file" class="form-control" id="inputGroupFile02">
+          <input type="file" class="form-control" name="image" id="inputGroupFile02">
         </div>
       
         <div class="form-outline mb-4">
           <label class="form-label" for="form6Example7">Descrição</label>
-          <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+          <textarea class="form-control" name="descricao" id="form6Example7" rows="4"></textarea>
         </div>
       
-        <button type="submit" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+        <button type="submit" name="submit" value="createCategory" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
       <footer class="footer pt-3  ">
         <div class="container-fluid">
@@ -220,6 +220,27 @@
       </footer>
     </div>
   </main>
+  <?php 
+    if (isset($_GET["error"])){
+      if ($_GET["error"] == "missingArguments" ) {
+        echo "<script>
+          alert('Você precisa preencher todos os campos')
+        </script>";
+      } elseif ($_GET["error"] == "noImage" ) {
+        echo "<script>
+          alert('Você deve fazer upload da imagem')
+        </script>";
+      } elseif ($_GET["error"] == "incorrectImage" ) {
+        echo "<script>
+          alert('A imagem precisa ser .jpg, .png, .jpeg ou .gif')
+        </script>";
+      } elseif ($_GET["error"] == "errorUnknown" ) {
+        echo "<script>
+          alert('Ocorreu um erro na categoria, por favor informar ao suporte!')
+        </script>";
+      }
+    }
+  ?>
   <!--   Core JS Files   -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
