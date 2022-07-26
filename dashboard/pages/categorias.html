@@ -260,6 +260,23 @@
       </footer>
     </div>
   </main>
+
+  <!--   Core JS Files   -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    let ajax = new XMLHttpRequest();
+    ajax.open('post', 'http://localhost/dashboard/actions/getDados.php');
+    ajax.onreadystatechange = function(){
+      if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
+        let respostaAjax = JSON.parse(ajax.responseText);
+        $(".f-produtos").text(respostaAjax.produtos)
+        $(".f-categorias").text(respostaAjax.categorias)
+        $(".f-clientes").text(respostaAjax.clientes)
+        $(".f-compras").text(respostaAjax.compras)
+      }
+    }
+    ajax.send(JSON.stringify("Dashboard"));
+  </script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>

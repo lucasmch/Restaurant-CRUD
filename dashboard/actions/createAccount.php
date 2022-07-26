@@ -4,23 +4,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="assets/img/favicon.png">
-  <title>Sua Loja - Dashboard</title>
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <title>Sua Loja - NOVO</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="assets/css/nucleo-svg.css" rel="stylesheet" />
-  <link id="pagestyle" href="assets/css/dashboard.css?v=1.0.6" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link id="pagestyle" href="../assets/css/dashboard.css?v=1.0.6" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="index.html" target="_blank">
-        <img src="assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
+      <a class="navbar-brand m-0" href="../index.html" target="_blank">
+        <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
         <span class="ms-1 font-weight-bold">Sua Loja - Dashboard</span>
       </a>
     </div>
@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link  active" href="index.html">
+          <a class="nav-link  " href="../index.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Dashboard</title>
@@ -48,7 +48,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="pages/categorias.html">
+          <a class="nav-link" href="../pages/categorias.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Categorias</title>
@@ -68,7 +68,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="pages/produtos.html">
+          <a class="nav-link" href="../pages/produtos.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Produtos</title>
@@ -88,7 +88,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="pages/config.html">
+          <a class="nav-link" href="../pages/config.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Configurações</title>
@@ -112,10 +112,10 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">ADMINISTRADORES</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="pages/contas.html">
+          <a class="nav-link active" href="../pages/contas.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <title>contas</title>
+                <title>Contas</title>
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                   <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
                     <g transform="translate(1716.000000, 291.000000)">
@@ -132,7 +132,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="pages/sign-in.html">
+          <a class="nav-link" href="../pages/sign-in.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Sair</title>
@@ -163,17 +163,11 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Contas</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+          <h6 class="font-weight-bolder mb-0">Novo Administrador</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Procurar produto...">
-            </div>
-          </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -190,135 +184,62 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Produtos</p>
-                    <h5 class="font-weight-bolder mb-0 f-produtos">
-                      0
-                      <!-- <span class="text-success text-sm font-weight-bolder">+0%</span> -->
-                    </h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <form>
+        <div class="row mb-4">
+          <div class="col">
+            <label class="form-label" for="form6Example3">Nome</label>
+            <input type="text" id="form6Example3" class="form-control" placeholder="Ex: João" />
+          </div>
+          <div class="col">
+            <label class="form-label" for="form6Example3">Sobrenome</label>
+            <input type="text" id="form6Example3" class="form-control" placeholder="Ex: Carvalho" />
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Categorias</p>
-                    <h5 class="font-weight-bolder mb-0 f-categorias">0</h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+        <div class="row mb-4">
+        <div class="col">
+            <label class="form-label" for="form6Example6">Email</label>
+            <input type="email" id="form6Example6" class="form-control" placeholder="Ex: administrador@suaempresa.com" />
+          </div>
+          <div class="col">
+            <label class="form-label" for="form6Example3">Telefone</label>
+            <input type="number" id="form6Example3" class="form-control" />
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Clientes</p>
-                    <h5 class="font-weight-bolder mb-0 f-clientes">0</h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+      
+        <div class="row mb-4">
+          <div class="col">
+            <label class="form-label" for="form6Example3">Senha</label>
+            <input type="password" id="form6Example3" class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label" for="form6Example6">Confirmação de senha</label>
+            <input type="password" id="form6Example6" class="form-control" />
           </div>
         </div>
-        <div class="col-xl-3 col-sm-6">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Compras</p>
-                    <h5 class="font-weight-bolder mb-0 f-compras">0</h5>
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-                  <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
-                    <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+        <!-- <div class="row mb-4">
+          <div class="col">
+            <label class="form-label" for="form6Example3">Telefone</label>
+            <input type="number" id="form6Example3" class="form-control" />
           </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-lg-7 mb-lg-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="d-flex flex-column h-100">
-                    <p class="mb-1 pt-2 text-bold">Atraia mais clientes</p>
-                    <h5 class="font-weight-bolder">Colocando novos produtos</h5>
-                    <p class="mb-5">Adicione mais produtos e variedades na sua loja para aumentar a vontade dos seus clientes!</p>
-                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="pages/produtos.html">
-                      Criar novo produto
-                      <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
-                  <div class="bg-gradient-primary border-radius-lg h-100">
-                    <img src="assets/img/shapes/waves-white.svg" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
-                    <div class="position-relative d-flex align-items-center justify-content-center h-100">
-                      <img class="w-100 position-relative z-index-2 pt-4" src="assets/img/illustrations/rocket-white.png" alt="rocket">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="col">
+            <label class="form-label" for="form6Example6">Confirmação de senha</label>
+            <input type="password" id="form6Example6" class="form-control" />
           </div>
+        </div> -->
+
+        <div class="form-check mb-4 form-switch">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
+          <label class="form-check-label" actived for="flexSwitchCheckDefault">Administrador Ativo</label>
         </div>
-        <div class="col-lg-5">
-          <div class="card h-100 p-3">
-            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="background-image: url('assets/img/ivancik.jpg');">
-              <span class="mask bg-gradient-dark"></span>
-              <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
-                <h5 class="text-white font-weight-bolder mb-4 pt-2">Criando categorias</h5>
-                <p class="text-white">Criar categorias é um fator bem importante para seus clientes acharem seus produtos com mais facilidades, que tal começar criando as categorias primeiro?</p>
-                <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="pages/categorias.html">
-                  Criar categoria
-                  <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer class="footer pt-3 mt-auto">
+      
+        <button type="submit" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+      </form>
+      <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-12 mb-lg-0 mb-4">
+            <div class="col-lg-6 mb-lg-0 mb-2">
               <div class="copyright text-center text-sm text-muted text-lg-start">
                 © <script>
                   document.write(new Date().getFullYear())
@@ -335,26 +256,10 @@
   </main>
   <!--   Core JS Files   -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script>
-    let ajax = new XMLHttpRequest();
-    ajax.open('post', 'http://localhost/dashboard/actions/getDados.php');
-    ajax.onreadystatechange = function(){
-      if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
-        let respostaAjax = JSON.parse(ajax.responseText);
-        $(".f-produtos").text(respostaAjax.produtos)
-        $(".f-categorias").text(respostaAjax.categorias)
-        $(".f-clientes").text(respostaAjax.clientes)
-        $(".f-compras").text(respostaAjax.compras)
-      }
-    }
-    ajax.send(JSON.stringify("Dashboard"));
-  </script>
-
-  <script src="assets/js/core/popper.min.js"></script>
-  <script src="assets/js/core/bootstrap.min.js"></script>
-  <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="assets/js/plugins/chartjs.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -365,6 +270,7 @@
     }
   </script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <script src="assets/js/dashboard.min.js?v=1.0.6"></script>
+  <script src="../assets/js/dashboard.min.js?v=1.0.6"></script>
 </body>
+
 </html>
