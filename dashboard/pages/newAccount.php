@@ -4,9 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>Sua Loja - NOVO</title>
+  <title>Dashboard - Novo Administrador</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -17,11 +16,10 @@
 
 <body class="g-sidenav-show  bg-gray-100">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
-    <div class="sidenav-header">
+    <div class="text-center sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="../index.html" target="_blank">
-        <img src="../assets/img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold">Sua Loja - Dashboard</span>
+      <a class="navbar-brand m-0" href="../index.html">
+        <span class="ms-1 font-weight-bold">Dashboard</span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -48,7 +46,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../pages/categorias.html">
+          <a class="nav-link" href="../pages/categorias.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Categorias</title>
@@ -112,7 +110,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">ADMINISTRADORES</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../pages/contas.html">
+          <a class="nav-link active" href="../pages/contas.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Contas</title>
@@ -132,7 +130,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="../pages/sign-in.html">
+          <a class="nav-link" href="../pages/sign-in.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Sair</title>
@@ -163,9 +161,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Categoria</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Contas</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Nova Categoria</h6>
+          <h6 class="font-weight-bolder mb-0">Novo Administrador</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <ul class="navbar-nav  justify-content-end">
@@ -188,18 +186,50 @@
         <div class="row mb-4">
           <div class="col">
             <label class="form-label" for="form6Example3">Nome</label>
-            <input type="text" id="form6Example3" class="form-control" placeholder="Ex: Pizzas" />
+            <input type="text" id="form6Example3" class="form-control" placeholder="Ex: João" />
+          </div>
+          <div class="col">
+            <label class="form-label" for="form6Example3">Sobrenome</label>
+            <input type="text" id="form6Example3" class="form-control" placeholder="Ex: Carvalho" />
           </div>
         </div>
 
-        <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example5">Foto da Categoria</label>
-          <input type="file" class="form-control" id="inputGroupFile02">
+        <div class="row mb-4">
+        <div class="col">
+            <label class="form-label" for="form6Example6">Email</label>
+            <input type="email" id="form6Example6" class="form-control" placeholder="Ex: administrador@suaempresa.com" />
+          </div>
+          <div class="col">
+            <label class="form-label" for="form6Example3">Telefone</label>
+            <input type="number" id="form6Example3" class="form-control" />
+          </div>
         </div>
       
-        <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example7">Descrição</label>
-          <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+        <div class="row mb-4">
+          <div class="col">
+            <label class="form-label" for="form6Example3">Senha</label>
+            <input type="password" id="form6Example3" class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label" for="form6Example6">Confirmação de senha</label>
+            <input type="password" id="form6Example6" class="form-control" />
+          </div>
+        </div>
+
+        <!-- <div class="row mb-4">
+          <div class="col">
+            <label class="form-label" for="form6Example3">Telefone</label>
+            <input type="number" id="form6Example3" class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label" for="form6Example6">Confirmação de senha</label>
+            <input type="password" id="form6Example6" class="form-control" />
+          </div>
+        </div> -->
+
+        <div class="form-check mb-4 form-switch">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
+          <label class="form-check-label" actived for="flexSwitchCheckDefault">Administrador Ativo</label>
         </div>
       
         <button type="submit" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
