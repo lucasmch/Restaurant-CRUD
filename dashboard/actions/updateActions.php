@@ -12,13 +12,25 @@ if(filterInput($_POST["submit"]) == "updateConfig") {
   $endereco = filterInput($_POST["endereco"]);
   $email = filterInput($_POST["email"]);
   $descricao = filterInput($_POST["descricao"]);
+  $imageVersion = filterInput($_POST["imageVersion"]);
 
   if(!$nome or !$telefone or !$endereco or !$email or !$descricao){
     header('Location: ../pages/config.html?error=missingArguments');
     exit;
   }
 
-  $sql = "UPDATE empresa SET nome='$nome', email='$email', telefone='$telefone', endereco='$endereco', descricao='$descricao'";
+  /* VALIDAR SE A IMAGEM FOI ENVIADA E SE SIM, TROCAR ELA*/
+  if(array_key_exists("image", $_FILES) and $_FILES["image"]["name"] != "" and $_FILES["image"]["name"] != null and getimagesize($_FILES["image"]["tmp_name"]) !== false){
+    /* VALIDAR A EXTENSÃO DA IMAGEM */
+    $imageFileType = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    if($imageFileType == "jpg" or $imageFileType == "png" or $imageFileType == "jpeg" or $imageFileType == "gif" ) {
+      $target_file = '../images/empresa/' . "logo.png";
+      move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+      $imageVersion = $imageVersion + 0.1;
+    }
+  }
+
+  $sql = "UPDATE empresa SET nome='$nome', email='$email', telefone='$telefone', endereco='$endereco', descricao='$descricao', imageVersion='$imageVersion'";
   if (mysqli_query($conn, $sql)) {
     header('Location: ../pages/config.html');
     exit;

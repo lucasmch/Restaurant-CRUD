@@ -193,22 +193,28 @@
             <input type="number" id="empTelefone" name="telefone" class="form-control" />
           </div>
         </div>
-      
-        <div class="form-outline mb-2">
-          <label class="form-label" for="empEndereco">Endereço</label>
+
+        <div class="row mb-4">
+          <div class="col">
+            <label class="form-label" for="empEndereco">Endereço</label>
           <input type="text" id="empEndereco" name="endereco" class="form-control" />
-        </div>
-      
-        <div class="form-outline mb-2">
-          <label class="form-label" for="empEmail">Email</label>
+          </div>
+          <div class="col">
+            <label class="form-label" for="empEmail">Email</label>
           <input type="email" id="empEmail" name="email" class="form-control" />
+          </div>
         </div>
-      
-        <div class="form-outline mb-2">
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="image">Logomarca da sua Loja (1000x1000)</label>
+          <input type="file" class="image" name="image" id="inputGroupFile02">
+        </div>
+
+        <div class="form-outline mb-4">
           <label class="form-label" for="empDescricao">Horários de funcionamento</label>
           <textarea class="form-control" name="descricao" id="empDescricao" rows="7"></textarea>
         </div>
-      
+        <input type="hidden" name="imageVersion" id="hiddenField" />
         <button type="submit" name="submit" value="updateConfig" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
       <footer class="footer pt-3  ">
@@ -242,6 +248,7 @@
         $("#empTelefone").val(respostaAjax["telefone"])
         $("#empEndereco").val(respostaAjax["endereco"])
         $("#empDescricao").val(respostaAjax["descricao"])
+        $("#hiddenField").val(respostaAjax["imageVersion"])
       }
     }
     ajax.send(JSON.stringify("Config"));
