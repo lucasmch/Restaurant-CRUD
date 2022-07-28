@@ -234,6 +234,10 @@
         echo "<script>
           alert('A imagem precisa ser .jpg, .png, .jpeg ou .gif')
         </script>";
+      } elseif ($_GET["error"] == "errorCategory" ) {
+        echo "<script>
+          alert('Crie uma categoria antes de criar seu produto')
+        </script>";
       } elseif ($_GET["error"] == "errorUnknown" ) {
         echo "<script>
           alert('Ocorreu um erro na categoria, por favor informar ao suporte!')

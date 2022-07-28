@@ -236,8 +236,8 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Clientes</p>
-                    <h5 class="font-weight-bolder mb-0 f-clientes">0</h5>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Contas</p>
+                    <h5 class="font-weight-bolder mb-0 f-contas">0</h5>
                   </div>
                 </div>
                 <div class="col-4 text-end">
@@ -341,7 +341,7 @@
         let respostaAjax = JSON.parse(ajax.responseText);
         $(".f-produtos").text(respostaAjax.produtos)
         $(".f-categorias").text(respostaAjax.categorias)
-        $(".f-clientes").text(respostaAjax.clientes)
+        $(".f-contas").text(respostaAjax.contas)
         $(".f-compras").text(respostaAjax.compras)
       }
     }

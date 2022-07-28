@@ -11,11 +11,16 @@ if(filterInput($_POST["submit"]) == "createProduct") {
   $valor = filterInput($_POST["valor"]);
   $categoria = filterInput($_POST["categoria"]);
   $descricao = filterInput($_POST["descricao"]);
+  $ativado = 0;
+
+  if(isset($_POST["ativado"])) {
+    $ativado = 1;
+  }
 
   /* VALIDAR SE TODOS OS CAMPOS ESTÃO PREENCHIDOS */
   if(!$nome or !$valor or !$categoria or !$descricao){
     if(!$categoria) {
-      header('Location: ../pages/newProduct.php?error=errorCategory');
+      header('Location: ../pages/newCategory.php?error=errorCategory');
     } else {
       header('Location: ../pages/newProduct.php?error=missingArguments');
     }
@@ -35,7 +40,7 @@ if(filterInput($_POST["submit"]) == "createProduct") {
     exit;
   }
   
-  $sql = "INSERT INTO produtos (name, value, description, category) VALUES ('$nome', '$valor', '$descricao', '$categoria')";
+  $sql = "INSERT INTO produtos (name, value, description, category, actived) VALUES ('$nome', '$valor', '$descricao', '$categoria', '$ativado')";
   if (mysqli_query($conn, $sql)) {
     $last_id = mysqli_insert_id($conn);
 

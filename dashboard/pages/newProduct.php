@@ -190,7 +190,7 @@
           </div>
           <div class="col">
             <label class="form-label" for="valor">Valor</label>
-            <input type="number" id="valor" name="valor" class="form-control" placeholder="Ex: 14.90" />
+            <input type="text" id="valor" name="valor" class="form-control" placeholder="Ex: 14.90" />
           </div>
         </div>
 
@@ -206,7 +206,7 @@
                 echo '<option value="0">Crie uma categoria primeiro</option>';
               } else {
                 while($row = mysqli_fetch_assoc($result)) {
-                  echo '<option value="'.$row["id"].'" selected>'.$row["name"].'</option>';
+                  echo '<option value="'.$row["id"].'">'.$row["name"].'</option>';
                 }
               }
             ?>  
@@ -261,10 +261,6 @@
       } elseif ($_GET["error"] == "incorrectImage" ) {
         echo "<script>
           alert('A imagem precisa ser .jpg, .png, .jpeg ou .gif')
-        </script>";
-      } elseif ($_GET["error"] == "errorCategory" ) {
-        echo "<script>
-          alert('Crie uma categoria antes de criar seu produto')
         </script>";
       } elseif ($_GET["error"] == "errorUnknown" ) {
         echo "<script>

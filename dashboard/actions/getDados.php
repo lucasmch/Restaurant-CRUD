@@ -18,7 +18,7 @@ if($dados == "Dashboard") {
   $result = mysqli_query($conn, $sql);
   $res["categorias"] = mysqli_num_rows($result);
   
-  $res["clientes"] = "0";
+  $res["contas"] = "0";
   $res["compras"] = "0";
 
 } else if ($dados == "Categorias") {

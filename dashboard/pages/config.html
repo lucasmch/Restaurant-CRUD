@@ -182,34 +182,34 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <form>
+      <form method="post" action="../actions/updateActions.php" enctype="multipart/form-data">
         <div class="row mb-2">
           <div class="col">
             <label class="form-label" for="empNome">Nome da sua loja</label>
-            <input type="text" id="empNome" class="form-control" />
+            <input type="text" id="empNome" name="nome" class="form-control" />
           </div>
           <div class="col">
             <label class="form-label" for="empTelefone">Telefone</label>
-            <input type="number" id="empTelefone" class="form-control" />
+            <input type="number" id="empTelefone" name="telefone" class="form-control" />
           </div>
         </div>
       
         <div class="form-outline mb-2">
           <label class="form-label" for="empEndereco">Endereço</label>
-          <input type="text" id="empEndereco" class="form-control" />
+          <input type="text" id="empEndereco" name="endereco" class="form-control" />
         </div>
       
         <div class="form-outline mb-2">
           <label class="form-label" for="empEmail">Email</label>
-          <input type="email" id="empEmail" class="form-control" />
+          <input type="email" id="empEmail" name="email" class="form-control" />
         </div>
       
         <div class="form-outline mb-2">
           <label class="form-label" for="empDescricao">Horários de funcionamento</label>
-          <textarea class="form-control" id="empDescricao" rows="7"></textarea>
+          <textarea class="form-control" name="descricao" id="empDescricao" rows="7"></textarea>
         </div>
       
-        <button type="submit" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+        <button type="submit" name="submit" value="updateConfig" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
       <footer class="footer pt-3  ">
         <div class="container-fluid">
