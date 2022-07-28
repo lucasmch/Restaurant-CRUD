@@ -185,40 +185,40 @@
       <form method="post" action="../actions/createActions.php" enctype="multipart/form-data">
         <div class="row mb-4">
           <div class="col">
-            <label class="form-label" for="form6Example3">Nome</label>
-            <input required type="text" id="form6Example3" name="nome" class="form-control" placeholder="Ex: João Carvalho" />
+            <label class="form-label" for="nome">Nome</label>
+            <input required type="text" id="nome" name="nome" class="form-control" placeholder="Ex: João Carvalho" />
           </div>
           <div class="col">
-            <label class="form-label" for="form6Example3">Telefone</label>
-            <input required type="number" id="form6Example3" name="telefone" class="form-control" />
+            <label class="form-label" for="telefone">Telefone</label>
+            <input required type="number" id="telefone" name="telefone" class="form-control" />
           </div>
         </div>
 
         <div class="row mb-4">
           <div class="col">
-            <label class="form-label" for="form6Example6">Email</label>
-            <input required type="email" id="form6Example6" name="email" class="form-control" placeholder="Ex: administrador@suaempresa.com" />
+            <label class="form-label" for="email">Email</label>
+            <input required type="email" id="email" name="email" class="form-control" placeholder="Ex: administrador@suaempresa.com" />
           </div>
           <div class="col">
-            <label class="form-label" for="form6Example6">Confirmação de Email</label>
-            <input required type="email" id="form6Example6" name="cemail" class="form-control" placeholder="Ex: administrador@suaempresa.com" />
+            <label class="form-label" for="cemail">Confirmação de Email</label>
+            <input required type="email" id="cemail" name="cemail" class="form-control" placeholder="Ex: administrador@suaempresa.com" />
           </div>
         </div>
       
         <div class="row mb-4">
           <div class="col">
-            <label class="form-label" for="form6Example3">Senha</label>
-            <input required type="password" id="form6Example3" name="senha" class="form-control" />
+            <label class="form-label" for="senha">Senha</label>
+            <input required type="password" id="senha" name="senha" class="form-control" />
           </div>
           <div class="col">
             <label class="form-label" for="form6Example6">Confirmação de senha</label>
-            <input required type="password" id="form6Example6" name="csenha" class="form-control" />
+            <input required type="password" id="csenha" name="csenha" class="form-control" />
           </div>
         </div>
 
         <div class="form-check mb-4 form-switch">
-          <input class="form-check-input" type="checkbox" name="ativado" id="flexSwitchCheckDefault" checked>
-          <label class="form-check-label" actived for="flexSwitchCheckDefault">Administrador Ativo</label>
+          <input class="form-check-input" type="checkbox" name="ativado" id="ativado" checked>
+          <label class="form-check-label" actived for="ativado">Administrador Ativo</label>
         </div>
       
         <button type="submit" name="submit" value="createAccount" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
@@ -256,6 +256,11 @@
   ?>
   <!--   Core JS Files   -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $("#csenha").addEventListener("onchange", function() {
+      console.log("CHANGED")
+    });
+  </script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>

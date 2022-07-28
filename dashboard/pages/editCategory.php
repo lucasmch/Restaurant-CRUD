@@ -210,19 +210,19 @@
     <form method="post" action="../actions/updateActions.php" enctype="multipart/form-data">
         <div class="row mb-4">
           <div class="col">
-            <label class="form-label" for="form6Example3">Nome</label>
-            <input required type="text" id="form6Example3" name="nome" class="form-control" placeholder="Ex: Pizzas" value="<?php echo $category["name"]; ?>" />
+            <label class="form-label" for="nome">Nome</label>
+            <input required type="text" id="nome" name="nome" class="form-control" placeholder="Ex: Pizzas" value="<?php echo $category["name"]; ?>" />
           </div>
         </div>
 
         <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example5">Foto da Categoria</label>
-          <input type="file" class="form-control" name="image" id="inputGroupFile02">
+          <label class="form-label" for="image">Foto da Categoria</label>
+          <input type="file" class="form-control" name="image" id="image">
         </div>
       
         <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example7">Descrição</label>
-          <textarea required class="form-control" name="descricao" id="form6Example7" rows="4"><?php echo $category["description"]; ?></textarea>
+          <label class="form-label" for="descricao">Descrição</label>
+          <textarea required class="form-control" name="descricao" id="descricao" rows="4"><?php echo $category["description"]; ?></textarea>
         </div>
         <input required type="hidden" name="imageVersion" id="hiddenField" value="<?php echo $category["imageVersion"]; ?>" />
         <input required type="hidden" name="id" id="hiddenField" value="<?php echo $category["id"]; ?>" />

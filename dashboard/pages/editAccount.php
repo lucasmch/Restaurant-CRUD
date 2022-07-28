@@ -210,34 +210,34 @@
     <form method="post" action="../actions/updateActions.php" enctype="multipart/form-data">
         <div class="row mb-4">
           <div class="col">
-            <label class="form-label" for="form6Example3">Nome</label>
-            <input required type="text" id="form6Example3" class="form-control" name="nome" placeholder="Ex: João Carvalho" value="<?php echo $account["name"]; ?>" />
+            <label class="form-label" for="Nome">Nome</label>
+            <input required type="text" id="Nome" class="form-control" name="nome" placeholder="Ex: João Carvalho" value="<?php echo $account["name"]; ?>" />
           </div>
           <div class="col">
-            <label class="form-label" for="form6Example3">Telefone</label>
-            <input required type="number" id="form6Example3" class="form-control" name="telefone" value="<?php echo $account["telefone"]; ?>" />
+            <label class="form-label" for="telefone">Telefone</label>
+            <input required type="number" id="telefone" class="form-control" name="telefone" value="<?php echo $account["telefone"]; ?>" />
           </div>
         </div>
 
         <div class="row mb-4">
         <div class="col">
-            <label class="form-label" for="form6Example6">Email</label>
-            <input required type="email" id="form6Example6" class="form-control" name="email" placeholder="Ex: administrador@suaempresa.com" value="<?php echo $account["email"]; ?>" />
+            <label class="form-label" for="email">Email</label>
+            <input required type="email" id="email" class="form-control" name="email" placeholder="Ex: administrador@suaempresa.com" value="<?php echo $account["email"]; ?>" />
           </div>
           <div class="col">
-            <label class="form-label" for="form6Example6">Confirmação de Email</label>
-            <input required type="email" id="form6Example6" name="email" class="form-control" name="cemail" placeholder="Ex: administrador@suaempresa.com" value="<?php echo $account["email"]; ?>" />
+            <label class="form-label" for="cemail">Confirmação de Email</label>
+            <input required type="email" id="cemail" name="email" class="form-control" name="cemail" placeholder="Ex: administrador@suaempresa.com" value="<?php echo $account["email"]; ?>" />
           </div>
         </div>
       
         <div class="row mb-4">
           <div class="col">
-            <label class="form-label" for="form6Example3">Senha</label>
-            <input required type="password" id="form6Example3" name="senha" class="form-control" />
+            <label class="form-label" for="senha">Senha</label>
+            <input required type="password" id="senha" name="senha" class="form-control" />
           </div>
           <div class="col">
-            <label class="form-label" for="form6Example6">Confirmação de senha</label>
-            <input required type="password" id="form6Example6" name="csenha" class="form-control" />
+            <label class="form-label" for="csenha">Confirmação de senha</label>
+            <input required type="password" id="csenha" name="csenha" class="form-control" />
           </div>
         </div>
 
@@ -249,7 +249,7 @@
               echo '<input class="form-check-input" name="ativado" type="checkbox" id="ativado">';
             }
           ?>  
-          <label class="form-check-label" actived for="flexSwitchCheckDefault">Administrador Ativo</label>
+          <label class="form-check-label" actived for="ativado">Administrador Ativo</label>
         </div>
         <input required type="hidden" name="id" id="hiddenField" value="<?php echo $account["id"]; ?>" />
         <button type="submit" name="submit" value="updateAccount" class="btn btn-primary btn-block mb-2">Salvar alterações</button>

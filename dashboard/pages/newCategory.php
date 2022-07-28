@@ -185,19 +185,19 @@
     <form method="post" action="../actions/createActions.php" enctype="multipart/form-data">
         <div class="row mb-4">
           <div class="col">
-            <label class="form-label" for="form6Example3">Nome</label>
-            <input required type="text" id="form6Example3" name="nome" class="form-control" placeholder="Ex: Pizzas" />
+            <label class="form-label" for="nome">Nome</label>
+            <input required type="text" id="nome" name="nome" class="form-control" placeholder="Ex: Pizzas" />
           </div>
         </div>
 
         <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example5">Foto da Categoria</label>
-          <input required type="file" class="form-control" name="image" id="inputGroupFile02">
+          <label class="form-label" for="image">Foto da Categoria</label>
+          <input required type="file" class="form-control" name="image" id="image">
         </div>
       
         <div class="form-outline mb-4">
-          <label class="form-label" for="form6Example7">Descrição</label>
-          <textarea required class="form-control" name="descricao" id="form6Example7" rows="4"></textarea>
+          <label class="form-label" for="descricao">Descrição</label>
+          <textarea required class="form-control" name="descricao" id="descricao" rows="4"></textarea>
         </div>
       
         <button type="submit" name="submit" value="createCategory" class="btn btn-primary btn-block mb-2">Salvar alterações</button>

@@ -185,34 +185,34 @@
       <form method="post" action="../actions/updateActions.php" enctype="multipart/form-data">
         <div class="row mb-2">
           <div class="col">
-            <label class="form-label" for="empNome">Nome da sua loja</label>
-            <input required type="text" id="empNome" name="nome" class="form-control" />
+            <label class="form-label" for="nome">Nome da sua loja</label>
+            <input required type="text" id="nome" name="nome" class="form-control" />
           </div>
           <div class="col">
-            <label class="form-label" for="empTelefone">Telefone</label>
-            <input required type="number" id="empTelefone" name="telefone" class="form-control" />
+            <label class="form-label" for="telefone">Telefone</label>
+            <input required type="number" id="telefone" name="telefone" class="form-control" />
           </div>
         </div>
 
         <div class="row mb-4">
           <div class="col">
-            <label class="form-label" for="empEndereco">Endereço</label>
-          <input required type="text" id="empEndereco" name="endereco" class="form-control" />
+            <label class="form-label" for="endereco">Endereço</label>
+          <input required type="text" id="endereco" name="endereco" class="form-control" />
           </div>
           <div class="col">
-            <label class="form-label" for="empEmail">Email</label>
-          <input required type="email" id="empEmail" name="email" class="form-control" />
+            <label class="form-label" for="email">Email</label>
+          <input required type="email" id="email" name="email" class="form-control" />
           </div>
         </div>
 
         <div class="form-outline mb-4">
           <label class="form-label" for="image">Logomarca da sua Loja (1000x1000)</label>
-          <input type="file" class="image" name="image" id="inputGroupFile02">
+          <input type="file" class="image" name="image" id="image">
         </div>
 
         <div class="form-outline mb-4">
-          <label class="form-label" for="empDescricao">Horários de funcionamento</label>
-          <textarea required class="form-control" name="descricao" id="empDescricao" rows="7"></textarea>
+          <label class="form-label" for="descricao">Horários de funcionamento</label>
+          <textarea required class="form-control" name="descricao" id="descricao" rows="7"></textarea>
         </div>
         <input required type="hidden" name="imageVersion" id="hiddenField" />
         <button type="submit" name="submit" value="updateConfig" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
