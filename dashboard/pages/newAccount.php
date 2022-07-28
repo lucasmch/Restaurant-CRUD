@@ -217,7 +217,7 @@
         </div>
 
         <div class="form-check mb-4 form-switch">
-          <input required class="form-check-input" type="checkbox" name="ativado" id="flexSwitchCheckDefault" checked>
+          <input class="form-check-input" type="checkbox" name="ativado" id="flexSwitchCheckDefault" checked>
           <label class="form-check-label" actived for="flexSwitchCheckDefault">Administrador Ativo</label>
         </div>
       

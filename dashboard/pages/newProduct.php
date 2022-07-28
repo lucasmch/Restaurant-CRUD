@@ -224,7 +224,7 @@
         </div>
 
         <div class="form-check mb-3 form-switch">
-          <input required class="form-check-input" name="ativado" type="checkbox" id="ativado" checked>
+          <input class="form-check-input" name="ativado" type="checkbox" id="ativado" checked>
           <label class="form-check-label" actived for="ativado">Produto disponivel</label>
         </div>
 

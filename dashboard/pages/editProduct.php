@@ -255,9 +255,9 @@
         <div class="form-check mb-3 form-switch">
           <?php
             if($product["actived"] == 1){
-              echo '<input required class="form-check-input" name="ativado" type="checkbox" id="ativado" checked>';
+              echo '<input class="form-check-input" name="ativado" type="checkbox" id="ativado" checked>';
             } else {
-              echo '<input required class="form-check-input" name="ativado" type="checkbox" id="ativado">';
+              echo '<input class="form-check-input" name="ativado" type="checkbox" id="ativado">';
             }
           ?>  
           <label class="form-check-label" actived for="ativado">Produto disponivel</label>
