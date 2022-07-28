@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>Dashboard - Produtos</title>
+  <title>Dashboard - Editar Categoria</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -13,6 +13,31 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/dashboard.css?v=1.0.6" rel="stylesheet" />
 </head>
+<?php
+  require_once("../actions/database.php");
+  function filterInput($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
+  if (!isset($_POST["id"]) or !is_numeric($_POST["id"]) or $_POST["id"] < 1 ){
+    header('Location: categorias.html');
+    exit;
+  } else {
+    $id = filterInput($_POST["id"]);
+
+    $sql = "SELECT * FROM categorias WHERE id = $id";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) < 1) {
+      header('Location: categorias.html');
+      exit;
+    }
+    $category = mysqli_fetch_assoc($result);
+  }
+?>
 
 <body class="g-sidenav-show  bg-gray-100">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
@@ -46,7 +71,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../pages/categorias.html">
+          <a class="nav-link active" href="../pages/categorias.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Categorias</title>
@@ -66,7 +91,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../pages/produtos.html">
+          <a class="nav-link" href="../pages/produtos.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Produtos</title>
@@ -110,7 +135,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">ADMINISTRADORES</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="../pages/contas.html">
+          <a class="nav-link" href="../pages/contas.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Contas</title>
@@ -161,17 +186,11 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Produtos</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Categoria</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Produtos</h6>
+          <h6 class="font-weight-bolder mb-0">Editar Categoria</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Type here...">
-            </div>
-          </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -188,37 +207,31 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card mb-4">
-            <div class="card-header pb-0 d-flex justify-content-between">
-              <h6>Produtos criados</h6>
-              <a class="btn text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto badge badge-sm bg-gradient-primary" href="../pages/newProduct.php">Criar novo produto</a>
-            </div>
-            <div class="card-body px-0 pt-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome do Produto</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Valor</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">STATUS</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Categoria</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Última atualização</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Opções</th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
-              </div>
-            </div>
+    <form method="post" action="../actions/updateActions.php" enctype="multipart/form-data">
+        <div class="row mb-4">
+          <div class="col">
+            <label class="form-label" for="form6Example3">Nome</label>
+            <input type="text" id="form6Example3" name="nome" class="form-control" placeholder="Ex: Pizzas" value="<?php echo $category["name"]; ?>" />
           </div>
         </div>
-      </div>
-      <footer class="footer pt-3">
+
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form6Example5">Foto da Categoria</label>
+          <input type="file" class="form-control" name="image" id="inputGroupFile02">
+        </div>
+      
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form6Example7">Descrição</label>
+          <textarea class="form-control" name="descricao" id="form6Example7" rows="4"><?php echo $category["description"]; ?></textarea>
+        </div>
+        <input type="hidden" name="imageVersion" id="hiddenField" value="<?php echo $category["imageVersion"]; ?>" />
+        <input type="hidden" name="id" id="hiddenField" value="<?php echo $category["id"]; ?>" />
+        <button type="submit" name="submit" value="updateCategory" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+      </form>
+      <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6 mb-lg-0 mb-4">
+            <div class="col-lg-6 mb-lg-0 mb-2">
               <div class="copyright text-center text-sm text-muted text-lg-start">
                 © <script>
                   document.write(new Date().getFullYear())
@@ -233,61 +246,33 @@
       </footer>
     </div>
   </main>
-  <!--   Core JS Files   -->
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script>
-    let ajax = new XMLHttpRequest();
-    ajax.open('post', 'http://192.168.18.85/dashboard/actions/getDados.php');
-    ajax.onreadystatechange = function () {
-      if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
-        let respostaAjax = JSON.parse(ajax.responseText);
-        $.each( respostaAjax, function( key, val ) {
-          let statusProduct = ""
-          if (respostaAjax[key]["actived"] == 1) {
-            statusProduct = '<span class="badge badge-sm bg-gradient-success">ATIVO</span>'
-          } else {
-            statusProduct = '<span class="badge badge-sm bg-gradient-secondary">DESATIVADO</span>'
-          }
-
-          $("tbody").append(`<tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../images/produtos/produto${respostaAjax[key]["id"]}.png?version=${respostaAjax[key]["imageVersion"]}" class="avatar avatar-sm me-3">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">${respostaAjax[key]["name"]}</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">R$ ${respostaAjax[key]["value"]}</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        ${statusProduct}
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">${respostaAjax[key]["category"]}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">${respostaAjax[key]["create_date"]}</span>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <form method="post" action="editProduct.php" enctype="multipart/form-data">
-                          <input type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
-                          <button type="submit" name="submit" value="updateProduct" class="btn btn-link text-secondary font-weight-bold text-xs mb-0"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</button>
-                        </form>
-                        <form method="post" action="../actions/deleteActions.php" enctype="multipart/form-data">
-                          <input type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
-                          <button type="submit" name="submit" value="deleteProduct" class="btn btn-link text-danger font-weight-bold text-xs mb-0"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</button>
-                        </form>
-                      </td>
-                    </tr>`);
-        });
+  <?php 
+    if (isset($_GET["error"])){
+      if ($_GET["error"] == "missingArguments" ) {
+        echo "<script>
+          alert('Você precisa preencher todos os campos')
+        </script>";
+      } elseif ($_GET["error"] == "noImage" ) {
+        echo "<script>
+          alert('Você deve fazer upload da imagem')
+        </script>";
+      } elseif ($_GET["error"] == "incorrectImage" ) {
+        echo "<script>
+          alert('A imagem precisa ser .jpg, .png, .jpeg ou .gif')
+        </script>";
+      } elseif ($_GET["error"] == "errorCategory" ) {
+        echo "<script>
+          alert('Crie uma categoria antes de criar seu produto')
+        </script>";
+      } elseif ($_GET["error"] == "errorUnknown" ) {
+        echo "<script>
+          alert('Ocorreu um erro na categoria, por favor informar ao suporte!')
+        </script>";
       }
     }
-    ajax.send(JSON.stringify("Produtos"));
-  </script>
+  ?>
+  <!--   Core JS Files   -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>

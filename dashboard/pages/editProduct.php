@@ -262,6 +262,7 @@
           ?>  
           <label class="form-check-label" actived for="ativado">Produto disponivel</label>
         </div>
+        <input type="hidden" name="imageVersion" id="hiddenField" value="<?php echo $product["imageVersion"]; ?>" />
         <input type="hidden" name="id" id="hiddenField" value="<?php echo $product["id"]; ?>" />
         <button type="submit" name="submit" value="updateProduct" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
