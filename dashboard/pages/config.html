@@ -243,12 +243,15 @@
     ajax.onreadystatechange = function () {
       if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
         let respostaAjax = JSON.parse(ajax.responseText)[0];
-        $("#empNome").val(respostaAjax["nome"])
-        $("#empEmail").val(respostaAjax["email"])
-        $("#empTelefone").val(respostaAjax["telefone"])
-        $("#empEndereco").val(respostaAjax["endereco"])
-        $("#empDescricao").val(respostaAjax["descricao"])
+        console.log(respostaAjax)
+        $("#nome").val(respostaAjax["nome"])
+        $("#email").val(respostaAjax["email"])
+        $("#telefone").val(respostaAjax["telefone"])
+        $("#endereco").val(respostaAjax["endereco"])
+        $("#descricao").val(respostaAjax["descricao"])
         $("#hiddenField").val(respostaAjax["imageVersion"])
+      } else if (ajax.readyState == 4 && ajax.status >= 400 ) {
+        window.location.href='./sign-in.html';
       }
     }
     ajax.send(JSON.stringify("Config"));

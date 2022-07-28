@@ -4,6 +4,10 @@ require_once("./database.php");
 $dados = json_decode(file_get_contents('php://input'), true);
 $res = [];
 
+if (!isset($_SESSION)) session_start();
+require_once("./checkSession.php");
+session_destroy();
+
 if(!$dados) {
   header('Location: ../');
   exit;
@@ -71,4 +75,11 @@ if($dados == "Dashboard") {
 }
 echo json_encode($res);
 mysqli_close($conn);
+
+function filterInput($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 ?>

@@ -14,6 +14,12 @@
   <link id="pagestyle" href="../assets/css/dashboard.css?v=1.0.6" rel="stylesheet" />
 </head>
 <?php
+  if (!isset($_SESSION)) session_start();
+  if (!isset($_COOKIE['login'])) {
+    header('Location: sign-in.html');
+    exit;
+  }
+
   require_once("../actions/database.php");
   function filterInput($data) {
     $data = trim($data);

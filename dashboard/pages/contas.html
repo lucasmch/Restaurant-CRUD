@@ -257,7 +257,7 @@
               ${statusAccount}
             </td>
             <td class='align-middle text-center'>
-              <span class='text-secondary text-xs font-weight-bold'>${respostaAjax[key]["create_date"]}</span>
+              <span class='text-secondary text-xs font-weight-bold'>${respostaAjax[key]["last_update"]}</span>
             </td>
 
             <td class="align-middle text-center text-sm">
@@ -272,6 +272,8 @@
             </td>
           </tr>`);
         });
+      } else if (ajax.readyState == 4 && ajax.status >= 400 ) {
+        window.location.href='./sign-in.html';
       }
     }
     ajax.send(JSON.stringify("Contas"));

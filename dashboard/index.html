@@ -343,6 +343,9 @@
         $(".f-categorias").text(respostaAjax.categorias)
         $(".f-contas").text(respostaAjax.contas)
         $(".f-compras").text(respostaAjax.compras)
+      } else if (ajax.readyState == 4 && ajax.status >= 400 ) {
+        console.log(ajax.status)
+        window.location.href='pages/sign-in.html';
       }
     }
     ajax.send(JSON.stringify("Dashboard"));

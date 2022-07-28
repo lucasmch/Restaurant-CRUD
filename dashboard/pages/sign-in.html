@@ -61,21 +61,21 @@
                   </p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form method="post" action="../actions/loginSystem.php" enctype="multipart/form-data">
                     <label>Email</label>
                     <div class="mb-3">
-                      <input required type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                      <input required type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                     </div>
                     <label>Senha</label>
                     <div class="mb-3">
-                      <input required type="password" class="form-control" placeholder="Senha" aria-label="Password" aria-describedby="password-addon">
+                      <input required type="password" class="form-control" name="senha" placeholder="Senha" aria-label="Password" aria-describedby="password-addon">
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
+                      <input class="form-check-input" type="checkbox" name="remember" id="rememberMe" checked>
                       <label class="form-check-label" for="rememberMe">Lembrar conta</label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Entrar</button>
+                      <button type="submit" name="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Entrar</button>
                     </div>
                   </form>
                 </div>
@@ -112,6 +112,16 @@
   </footer>
   <!--   Core JS Files   -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    var url = new URL(window.location.href);
+    if(url.searchParams.get("error")) {
+      if (url.searchParams.get("error") == "missingArguments"){
+        alert('Você precisa preencher todos os campos')
+      }else if (url.searchParams.get("error") == "invalidLogin"){
+        alert('Login inválido, tente novamente')
+      }
+    }
+  </script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
