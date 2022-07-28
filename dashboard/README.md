@@ -36,4 +36,4 @@ Aqui o usuario pode adicionar todos os produtos, categorias. informações da lo
 - Desenvolvimento e funcionamento: [LucasMCH](https://github.com/lucasmch)
 - Dasboard/NUI: [Creative Tim](https://www.creative-tim.com/)
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/lucasmch/Restaurant-CRUD/blob/main/dashboard/LICENSE) para mais detalhes.
