@@ -17,9 +17,13 @@ if($dados == "Dashboard") {
   $sql = "SELECT * FROM categorias";
   $result = mysqli_query($conn, $sql);
   $res["categorias"] = mysqli_num_rows($result);
+
+
+  $sql = "SELECT * FROM contas";
+  $result = mysqli_query($conn, $sql);
+  $res["contas"] = mysqli_num_rows($result);
   
-  $res["contas"] = "0";
-  $res["compras"] = "0";
+  $res["compras"] = "Fechado";
 
 } else if ($dados == "Categorias") {
   $sql = "SELECT * FROM categorias";
