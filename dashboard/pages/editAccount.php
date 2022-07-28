@@ -252,7 +252,7 @@
           <label class="form-check-label" actived for="ativado">Administrador Ativo</label>
         </div>
         <input required type="hidden" name="id" id="hiddenField" value="<?php echo $account["id"]; ?>" />
-        <button type="submit" name="submit" value="updateAccount" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+        <button type="submit" id="btnSubmit" disabled name="submit" value="updateAccount" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
       <footer class="footer pt-3  ">
         <div class="container-fluid">
@@ -287,6 +287,15 @@
   ?>
   <!--   Core JS Files   -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $("#csenha, #senha, #cemail, #email").change(function() {
+      if ($("#senha").val() == $("#csenha").val() && $("#email").val() == $("#cemail").val()) {
+        $('#btnSubmit').prop('disabled', false);
+      } else {
+        $('#btnSubmit').prop('disabled', true);
+      }
+    });
+  </script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>

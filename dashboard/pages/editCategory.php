@@ -226,7 +226,7 @@
         </div>
         <input required type="hidden" name="imageVersion" id="hiddenField" value="<?php echo $category["imageVersion"]; ?>" />
         <input required type="hidden" name="id" id="hiddenField" value="<?php echo $category["id"]; ?>" />
-        <button type="submit" name="submit" value="updateCategory" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+        <button type="submit" id="btnSubmit" name="submit" value="updateCategory" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
       <footer class="footer pt-3  ">
         <div class="container-fluid">

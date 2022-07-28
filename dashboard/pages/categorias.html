@@ -317,11 +317,11 @@
                       <td class="align-middle text-center text-sm">
                         <form method="post" action="editCategory.php" enctype="multipart/form-data">
                           <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
-                          <button type="submit" name="submit" value="updateCategory" class="btn btn-link text-secondary font-weight-bold text-xs mb-0"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</button>
+                          <button type="submit" id="btnSubmit" name="submit" value="updateCategory" class="btn btn-link text-secondary font-weight-bold text-xs mb-0"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</button>
                         </form>
                         <form method="post" action="../actions/deleteActions.php" enctype="multipart/form-data">
                           <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
-                          <button type="submit" name="submit" value="deleteCategory" class="btn btn-link text-danger font-weight-bold text-xs mb-0"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</button>
+                          <button type="submit" id="btnSubmit" name="submit" value="deleteCategory" class="btn btn-link text-danger font-weight-bold text-xs mb-0"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</button>
                         </form>
                       </td>
                     </tr>

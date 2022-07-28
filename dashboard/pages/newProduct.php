@@ -228,7 +228,7 @@
           <label class="form-check-label" actived for="ativado">Produto disponivel</label>
         </div>
 
-        <button type="submit" name="submit" value="createProduct" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+        <button type="submit" id="btnSubmit" name="submit" value="createProduct" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
       <footer class="footer pt-3">
         <div class="container-fluid">

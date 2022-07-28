@@ -200,7 +200,7 @@
           <textarea required class="form-control" name="descricao" id="descricao" rows="4"></textarea>
         </div>
       
-        <button type="submit" name="submit" value="createCategory" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+        <button type="submit" id="btnSubmit" name="submit" value="createCategory" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
       <footer class="footer pt-3  ">
         <div class="container-fluid">
