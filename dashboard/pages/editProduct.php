@@ -211,11 +211,11 @@
         <div class="row mb-2">
           <div class="col">
             <label class="form-label" for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" class="form-control" placeholder="Ex: Hamburguer de Picanha" value="<?php echo $product["name"]; ?>" />
+            <input required type="text" id="nome" name="nome" class="form-control" placeholder="Ex: Hamburguer de Picanha" value="<?php echo $product["name"]; ?>" />
           </div>
           <div class="col">
             <label class="form-label" for="valor">Valor</label>
-            <input type="text" id="valor" name="valor" class="form-control" placeholder="Ex: 14.90" value="<?php echo $product["value"]; ?>" />
+            <input required type="text" id="valor" name="valor" class="form-control" placeholder="Ex: 14.90" value="<?php echo $product["value"]; ?>" />
           </div>
         </div>
 
@@ -249,21 +249,21 @@
 
         <div class="form-outline mb-4">
           <label class="form-label" for="descricao">Descrição</label>
-          <textarea class="form-control" name="descricao" id="descricao" rows="4"><?php echo $product["description"]; ?></textarea>
+          <textarea required class="form-control" name="descricao" id="descricao" rows="4"><?php echo $product["description"]; ?></textarea>
         </div>
 
         <div class="form-check mb-3 form-switch">
           <?php
             if($product["actived"] == 1){
-              echo '<input class="form-check-input" name="ativado" type="checkbox" id="ativado" checked>';
+              echo '<input required class="form-check-input" name="ativado" type="checkbox" id="ativado" checked>';
             } else {
-              echo '<input class="form-check-input" name="ativado" type="checkbox" id="ativado">';
+              echo '<input required class="form-check-input" name="ativado" type="checkbox" id="ativado">';
             }
           ?>  
           <label class="form-check-label" actived for="ativado">Produto disponivel</label>
         </div>
-        <input type="hidden" name="imageVersion" id="hiddenField" value="<?php echo $product["imageVersion"]; ?>" />
-        <input type="hidden" name="id" id="hiddenField" value="<?php echo $product["id"]; ?>" />
+        <input required type="hidden" name="imageVersion" id="hiddenField" value="<?php echo $product["imageVersion"]; ?>" />
+        <input required type="hidden" name="id" id="hiddenField" value="<?php echo $product["id"]; ?>" />
         <button type="submit" name="submit" value="updateProduct" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
       <footer class="footer pt-3">

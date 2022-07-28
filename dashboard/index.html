@@ -169,7 +169,7 @@
           <!-- <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Procurar produto...">
+              <input required type="text" class="form-control" placeholder="Procurar produto...">
             </div>
           </div> -->
           <ul class="navbar-nav  justify-content-end">
@@ -335,7 +335,7 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     let ajax = new XMLHttpRequest();
-    ajax.open('post', 'http://192.168.18.85/dashboard/actions/getDados.php');
+    ajax.open('post', './actions/getDados.php');
     ajax.onreadystatechange = function(){
       if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
         let respostaAjax = JSON.parse(ajax.responseText);

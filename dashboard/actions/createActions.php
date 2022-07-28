@@ -99,6 +99,32 @@ if(filterInput($_POST["submit"]) == "createProduct") {
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
+} else if(filterInput($_POST["submit"]) == "createAccount") {
+  $nome = filterInput($_POST["nome"]);
+  $email = filterInput($_POST["email"]);
+  $senha = filterInput($_POST["senha"]);
+  $telefone = filterInput($_POST["telefone"]);
+  $actived = 0;
+
+  if(isset($_POST["ativado"])) {
+    $actived = 1;
+  }
+
+  /* VALIDAR SE TODOS OS CAMPOS ESTÃO PREENCHIDOS */
+  if(!$nome or !$email or !$senha or !$telefone){
+    header('Location: ../pages/newAccount.php?error=missingArguments');
+    exit;
+  }
+
+  $senha = password_hash($senha, PASSWORD_DEFAULT);
+  
+  $sql = "INSERT INTO contas (name, email, senha, telefone, actived) VALUES ('$nome', '$email', '$senha', '$telefone', '$actived')";
+  if (mysqli_query($conn, $sql)) {
+    header('Location: ../pages/contas.html');
+    exit;
+  } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
 } else {
   header('Location: ../');
   exit;

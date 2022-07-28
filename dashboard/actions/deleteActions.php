@@ -42,6 +42,14 @@ if(filterInput($_POST["submit"]) == "deleteProduct") {
 
   header('Location: ../pages/categorias.html');
   exit;
+} else if(filterInput($_POST["submit"]) == "deleteAccount") {
+    $id = filterInput($_POST["id"]);
+  
+    $sql = "DELETE FROM contas WHERE id = ".$id;
+    $result = mysqli_query($conn, $sql);
+  
+    header('Location: ../pages/contas.html');
+    exit;
 } else {
   header('Location: ../');
   exit;

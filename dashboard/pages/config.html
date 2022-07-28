@@ -186,22 +186,22 @@
         <div class="row mb-2">
           <div class="col">
             <label class="form-label" for="empNome">Nome da sua loja</label>
-            <input type="text" id="empNome" name="nome" class="form-control" />
+            <input required type="text" id="empNome" name="nome" class="form-control" />
           </div>
           <div class="col">
             <label class="form-label" for="empTelefone">Telefone</label>
-            <input type="number" id="empTelefone" name="telefone" class="form-control" />
+            <input required type="number" id="empTelefone" name="telefone" class="form-control" />
           </div>
         </div>
 
         <div class="row mb-4">
           <div class="col">
             <label class="form-label" for="empEndereco">Endereço</label>
-          <input type="text" id="empEndereco" name="endereco" class="form-control" />
+          <input required type="text" id="empEndereco" name="endereco" class="form-control" />
           </div>
           <div class="col">
             <label class="form-label" for="empEmail">Email</label>
-          <input type="email" id="empEmail" name="email" class="form-control" />
+          <input required type="email" id="empEmail" name="email" class="form-control" />
           </div>
         </div>
 
@@ -212,9 +212,9 @@
 
         <div class="form-outline mb-4">
           <label class="form-label" for="empDescricao">Horários de funcionamento</label>
-          <textarea class="form-control" name="descricao" id="empDescricao" rows="7"></textarea>
+          <textarea required class="form-control" name="descricao" id="empDescricao" rows="7"></textarea>
         </div>
-        <input type="hidden" name="imageVersion" id="hiddenField" />
+        <input required type="hidden" name="imageVersion" id="hiddenField" />
         <button type="submit" name="submit" value="updateConfig" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
       <footer class="footer pt-3  ">
@@ -239,7 +239,7 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     let ajax = new XMLHttpRequest();
-    ajax.open('post', 'http://192.168.18.85/dashboard/actions/getDados.php');
+    ajax.open('post', '../actions/getDados.php');
     ajax.onreadystatechange = function () {
       if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
         let respostaAjax = JSON.parse(ajax.responseText)[0];
@@ -252,6 +252,13 @@
       }
     }
     ajax.send(JSON.stringify("Config"));
+
+    var url = new URL(window.location.href);
+    if(url.searchParams.get("error")) {
+      if (url.searchParams.get("error") == "missingArguments"){
+        alert('Você precisa preencher todos os campos')
+      }
+    }
   </script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>

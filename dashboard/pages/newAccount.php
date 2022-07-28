@@ -182,57 +182,46 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <form>
+      <form method="post" action="../actions/createActions.php" enctype="multipart/form-data">
         <div class="row mb-4">
           <div class="col">
             <label class="form-label" for="form6Example3">Nome</label>
-            <input type="text" id="form6Example3" class="form-control" placeholder="Ex: João" />
+            <input required type="text" id="form6Example3" name="nome" class="form-control" placeholder="Ex: João Carvalho" />
           </div>
           <div class="col">
-            <label class="form-label" for="form6Example3">Sobrenome</label>
-            <input type="text" id="form6Example3" class="form-control" placeholder="Ex: Carvalho" />
+            <label class="form-label" for="form6Example3">Telefone</label>
+            <input required type="number" id="form6Example3" name="telefone" class="form-control" />
           </div>
         </div>
 
         <div class="row mb-4">
-        <div class="col">
+          <div class="col">
             <label class="form-label" for="form6Example6">Email</label>
-            <input type="email" id="form6Example6" class="form-control" placeholder="Ex: administrador@suaempresa.com" />
+            <input required type="email" id="form6Example6" name="email" class="form-control" placeholder="Ex: administrador@suaempresa.com" />
           </div>
           <div class="col">
-            <label class="form-label" for="form6Example3">Telefone</label>
-            <input type="number" id="form6Example3" class="form-control" />
+            <label class="form-label" for="form6Example6">Confirmação de Email</label>
+            <input required type="email" id="form6Example6" name="cemail" class="form-control" placeholder="Ex: administrador@suaempresa.com" />
           </div>
         </div>
       
         <div class="row mb-4">
           <div class="col">
             <label class="form-label" for="form6Example3">Senha</label>
-            <input type="password" id="form6Example3" class="form-control" />
+            <input required type="password" id="form6Example3" name="senha" class="form-control" />
           </div>
           <div class="col">
             <label class="form-label" for="form6Example6">Confirmação de senha</label>
-            <input type="password" id="form6Example6" class="form-control" />
+            <input required type="password" id="form6Example6" name="csenha" class="form-control" />
           </div>
         </div>
 
-        <!-- <div class="row mb-4">
-          <div class="col">
-            <label class="form-label" for="form6Example3">Telefone</label>
-            <input type="number" id="form6Example3" class="form-control" />
-          </div>
-          <div class="col">
-            <label class="form-label" for="form6Example6">Confirmação de senha</label>
-            <input type="password" id="form6Example6" class="form-control" />
-          </div>
-        </div> -->
-
         <div class="form-check mb-4 form-switch">
-          <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
+          <input required class="form-check-input" type="checkbox" name="ativado" id="flexSwitchCheckDefault" checked>
           <label class="form-check-label" actived for="flexSwitchCheckDefault">Administrador Ativo</label>
         </div>
       
-        <button type="submit" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+        <button type="submit" name="submit" value="createAccount" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
       <footer class="footer pt-3  ">
         <div class="container-fluid">
@@ -252,6 +241,19 @@
       </footer>
     </div>
   </main>
+  <?php 
+    if (isset($_GET["error"])){
+      if ($_GET["error"] == "missingArguments" ) {
+        echo "<script>
+          alert('Você precisa preencher todos os campos')
+        </script>";
+      } elseif ($_GET["error"] == "errorUnknown" ) {
+        echo "<script>
+          alert('Ocorreu um erro na conta, por favor informar ao suporte!')
+        </script>";
+      }
+    }
+  ?>
   <!--   Core JS Files   -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>

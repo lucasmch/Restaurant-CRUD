@@ -214,7 +214,7 @@
           <!-- <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Type here...">
+              <input required type="text" class="form-control" placeholder="Type here...">
             </div>
           </div> -->
           <ul class="navbar-nav  justify-content-end">
@@ -288,7 +288,7 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script>
     let ajax = new XMLHttpRequest();
-    ajax.open('post', 'http://192.168.18.85/dashboard/actions/getDados.php');
+    ajax.open('post', '../actions/getDados.php');
     ajax.onreadystatechange = function () {
       if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
         let respostaAjax = JSON.parse(ajax.responseText);
@@ -316,11 +316,11 @@
                       </td>
                       <td class="align-middle text-center text-sm">
                         <form method="post" action="editCategory.php" enctype="multipart/form-data">
-                          <input type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
+                          <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
                           <button type="submit" name="submit" value="updateCategory" class="btn btn-link text-secondary font-weight-bold text-xs mb-0"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</button>
                         </form>
                         <form method="post" action="../actions/deleteActions.php" enctype="multipart/form-data">
-                          <input type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
+                          <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
                           <button type="submit" name="submit" value="deleteCategory" class="btn btn-link text-danger font-weight-bold text-xs mb-0"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</button>
                         </form>
                       </td>
@@ -330,6 +330,13 @@
       }
     }
     ajax.send(JSON.stringify("Categorias"));
+
+    var url = new URL(window.location.href);
+    if(url.searchParams.get("error")) {
+      if (url.searchParams.get("error") == "missingArguments"){
+        alert('Você precisa preencher todos os campos')
+      }
+    }
   </script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>

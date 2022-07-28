@@ -186,18 +186,18 @@
         <div class="row mb-4">
           <div class="col">
             <label class="form-label" for="form6Example3">Nome</label>
-            <input type="text" id="form6Example3" name="nome" class="form-control" placeholder="Ex: Pizzas" />
+            <input required type="text" id="form6Example3" name="nome" class="form-control" placeholder="Ex: Pizzas" />
           </div>
         </div>
 
         <div class="form-outline mb-4">
           <label class="form-label" for="form6Example5">Foto da Categoria</label>
-          <input type="file" class="form-control" name="image" id="inputGroupFile02">
+          <input required type="file" class="form-control" name="image" id="inputGroupFile02">
         </div>
       
         <div class="form-outline mb-4">
           <label class="form-label" for="form6Example7">Descrição</label>
-          <textarea class="form-control" name="descricao" id="form6Example7" rows="4"></textarea>
+          <textarea required class="form-control" name="descricao" id="form6Example7" rows="4"></textarea>
         </div>
       
         <button type="submit" name="submit" value="createCategory" class="btn btn-primary btn-block mb-2">Salvar alterações</button>

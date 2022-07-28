@@ -110,6 +110,33 @@ if(filterInput($_POST["submit"]) == "updateConfig") {
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
+} else if (filterInput($_POST["submit"]) == "updateAccount") {
+  $id = filterInput($_POST["id"]);
+  $nome = filterInput($_POST["nome"]);
+  $telefone = filterInput($_POST["telefone"]);
+  $email = filterInput($_POST["email"]);
+  $senha = filterInput($_POST["senha"]);
+  $actived = "0";
+
+  if(isset($_POST["ativado"])) {
+    $actived = "1";
+  }
+
+  /* VALIDAR SE TODOS OS CAMPOS ESTÃO PREENCHIDOS */
+  if(!$id or !$nome or !$telefone or !$email or !$senha){
+    header('Location: ../pages/contas.html?error=missingArguments');
+    exit;
+  }
+
+  $senha = password_hash($senha, PASSWORD_DEFAULT);
+
+  $sql = "UPDATE contas SET name='$nome', telefone='$telefone', email='$email', senha='$senha', actived='$actived' WHERE id = $id";
+  if (mysqli_query($conn, $sql)) {
+    header('Location: ../pages/contas.html');
+    exit;
+  } else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
 } else {
   header('Location: ../');
   exit;

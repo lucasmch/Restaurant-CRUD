@@ -53,6 +53,12 @@ if($dados == "Dashboard") {
 
     $res[] = $row;
   }
+} else if ($dados == "Contas") {
+  $sql = "SELECT * FROM contas";
+  $result = mysqli_query($conn, $sql);
+  while($row = mysqli_fetch_assoc($result)) {
+    $res[] = $row;
+  }
 } else if ($dados == "Config") {
   $sql = "SELECT * FROM empresa";
   $result = mysqli_query($conn, $sql);

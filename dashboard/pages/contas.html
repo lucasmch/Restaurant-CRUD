@@ -13,7 +13,6 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/dashboard.css?v=1.0.6" rel="stylesheet" />
 </head>
-
 <body class="g-sidenav-show  bg-gray-100">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
     <div class="text-center sidenav-header">
@@ -169,7 +168,7 @@
           <!-- <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Type here...">
+              <input required type="text" class="form-control" placeholder="Type here...">
             </div>
           </div> -->
           <ul class="navbar-nav  justify-content-end">
@@ -208,24 +207,6 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-center text-sm">Lucas Machado</h6>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="text-secondary text-xs font-weight-bold">lucasgms2002@gmail.com</span>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">ATIVO</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">10/12/2021</span>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <a class="btn btn-link text-secondary font-weight-bold text-xs mb-0" href="javascript:;"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</a>
-                        <a class="btn btn-link text-danger font-weight-bold text-xs mb-0" href="javascript:;"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</a>
-                      </td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -253,6 +234,55 @@
   </main>
   <!--   Core JS Files   -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    let ajax = new XMLHttpRequest();
+    ajax.open('post', '../actions/getDados.php');
+    ajax.onreadystatechange = function () {
+      if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
+        let respostaAjax = JSON.parse(ajax.responseText);
+        $.each( respostaAjax, function( key, val ) {
+          let statusAccount = '<span class="badge badge-sm bg-gradient-secondary">DESATIVADO</span>'
+          if (respostaAjax[key]["actived"] == 1) {
+            statusAccount = '<span class="badge badge-sm bg-gradient-success">ATIVO</span>'
+          }
+
+          $("tbody").append(`<tr>
+            <td class='align-middle text-center text-sm'>
+              <h6 class='mb-0 text-center text-sm'>${respostaAjax[key]["name"]}</h6>
+            </td>
+            <td class='align-middle text-center text-sm'>
+              <span class='text-secondary text-xs font-weight-bold'>${respostaAjax[key]["email"]}</span>
+            </td>
+            <td class='align-middle text-center text-sm'>
+              ${statusAccount}
+            </td>
+            <td class='align-middle text-center'>
+              <span class='text-secondary text-xs font-weight-bold'>${respostaAjax[key]["create_date"]}</span>
+            </td>
+
+            <td class="align-middle text-center text-sm">
+              <form method="post" action="editAccount.php" enctype="multipart/form-data">
+                <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
+                <button type="submit" name="submit" value="updateAccount" class="btn btn-link text-secondary font-weight-bold text-xs mb-0"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</button>
+              </form>
+              <form method="post" action="../actions/deleteActions.php" enctype="multipart/form-data">
+                <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
+                <button type="submit" name="submit" value="deleteAccount" class="btn btn-link text-danger font-weight-bold text-xs mb-0"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</button>
+              </form>
+            </td>
+          </tr>`);
+        });
+      }
+    }
+    ajax.send(JSON.stringify("Contas"));
+
+    var url = new URL(window.location.href);
+    if(url.searchParams.get("error")) {
+      if (url.searchParams.get("error") == "missingArguments"){
+        alert('Você precisa preencher todos os campos')
+      }
+    }
+  </script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>

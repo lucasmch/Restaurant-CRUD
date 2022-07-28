@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>Dashboard - Novo Produto</title>
+  <title>Dashboard - Editar Administrador</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -13,6 +13,31 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/dashboard.css?v=1.0.6" rel="stylesheet" />
 </head>
+<?php
+  require_once("../actions/database.php");
+  function filterInput($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
+  if (!isset($_POST["id"]) or !is_numeric($_POST["id"]) or $_POST["id"] < 1 ){
+    header('Location: contas.html');
+    exit;
+  } else {
+    $id = filterInput($_POST["id"]);
+
+    $sql = "SELECT * FROM contas WHERE id = $id";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) < 1) {
+      header('Location: contas.html');
+      exit;
+    }
+    $account = mysqli_fetch_assoc($result);
+  }
+?>
 
 <body class="g-sidenav-show  bg-gray-100">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
@@ -66,7 +91,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../pages/produtos.html">
+          <a class="nav-link" href="../pages/produtos.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Produtos</title>
@@ -110,7 +135,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">ADMINISTRADORES</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../pages/contas.html">
+          <a class="nav-link active" href="../pages/contas.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Contas</title>
@@ -130,7 +155,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="../pages/sign-in.html">
+          <a class="nav-link" href="../pages/sign-in.html">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>Sair</title>
@@ -161,9 +186,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Páginas</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Produto</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Contas</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Novo Produto</h6>
+          <h6 class="font-weight-bolder mb-0">Editar Administrador</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <ul class="navbar-nav  justify-content-end">
@@ -182,55 +207,54 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-      <form method="post" action="../actions/createActions.php" enctype="multipart/form-data">
-        <div class="row mb-2">
+    <form method="post" action="../actions/updateActions.php" enctype="multipart/form-data">
+        <div class="row mb-4">
           <div class="col">
-            <label class="form-label" for="nome">Nome</label>
-            <input required type="text" id="nome" name="nome" class="form-control" placeholder="Ex: Hamburguer de Picanha" />
+            <label class="form-label" for="form6Example3">Nome</label>
+            <input required type="text" id="form6Example3" class="form-control" name="nome" placeholder="Ex: João Carvalho" value="<?php echo $account["name"]; ?>" />
           </div>
           <div class="col">
-            <label class="form-label" for="valor">Valor</label>
-            <input required type="text" id="valor" name="valor" class="form-control" placeholder="Ex: 14.90" />
+            <label class="form-label" for="form6Example3">Telefone</label>
+            <input required type="number" id="form6Example3" class="form-control" name="telefone" value="<?php echo $account["telefone"]; ?>" />
           </div>
         </div>
 
-        <div class="form-outline mb-4">
-          <label class="form-label" for="categoria">Categoria</label>
-          <select name="categoria" id="categoria" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-            <?php
-              require_once("../actions/database.php");
-              $sql = "SELECT * FROM categorias";
-              $result = mysqli_query($conn, $sql);
-
-              if (mysqli_num_rows($result) < 1) {
-                echo '<option value="0">Crie uma categoria primeiro</option>';
-              } else {
-                while($row = mysqli_fetch_assoc($result)) {
-                  echo '<option value="'.$row["id"].'">'.$row["name"].'</option>';
-                }
-              }
-            ?>  
-          </select>
+        <div class="row mb-4">
+        <div class="col">
+            <label class="form-label" for="form6Example6">Email</label>
+            <input required type="email" id="form6Example6" class="form-control" name="email" placeholder="Ex: administrador@suaempresa.com" value="<?php echo $account["email"]; ?>" />
+          </div>
+          <div class="col">
+            <label class="form-label" for="form6Example6">Confirmação de Email</label>
+            <input required type="email" id="form6Example6" name="email" class="form-control" name="cemail" placeholder="Ex: administrador@suaempresa.com" value="<?php echo $account["email"]; ?>" />
+          </div>
+        </div>
+      
+        <div class="row mb-4">
+          <div class="col">
+            <label class="form-label" for="form6Example3">Senha</label>
+            <input required type="password" id="form6Example3" name="senha" class="form-control" />
+          </div>
+          <div class="col">
+            <label class="form-label" for="form6Example6">Confirmação de senha</label>
+            <input required type="password" id="form6Example6" name="csenha" class="form-control" />
+          </div>
         </div>
 
-        <div class="form-outline mb-4">
-          <label class="form-label" for="image">Foto do Produto</label>
-          <input required type="file" class="image" name="image" id="inputGroupFile02">
+        <div class="form-check mb-4 form-switch">
+          <?php
+            if($account["actived"] == 1){
+              echo '<input required class="form-check-input" name="ativado" type="checkbox" id="ativado" checked>';
+            } else {
+              echo '<input required class="form-check-input" name="ativado" type="checkbox" id="ativado">';
+            }
+          ?>  
+          <label class="form-check-label" actived for="flexSwitchCheckDefault">Administrador Ativo</label>
         </div>
-
-        <div class="form-outline mb-4">
-          <label class="form-label" for="descricao">Descrição</label>
-          <textarea required class="form-control" name="descricao" id="descricao" rows="4"></textarea>
-        </div>
-
-        <div class="form-check mb-3 form-switch">
-          <input required class="form-check-input" name="ativado" type="checkbox" id="ativado" checked>
-          <label class="form-check-label" actived for="ativado">Produto disponivel</label>
-        </div>
-
-        <button type="submit" name="submit" value="createProduct" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
+        <input required type="hidden" name="id" id="hiddenField" value="<?php echo $account["id"]; ?>" />
+        <button type="submit" name="submit" value="updateAccount" class="btn btn-primary btn-block mb-2">Salvar alterações</button>
       </form>
-      <footer class="footer pt-3">
+      <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-2">
@@ -254,17 +278,9 @@
         echo "<script>
           alert('Você precisa preencher todos os campos')
         </script>";
-      } elseif ($_GET["error"] == "noImage" ) {
-        echo "<script>
-          alert('Você deve fazer upload da imagem')
-        </script>";
-      } elseif ($_GET["error"] == "incorrectImage" ) {
-        echo "<script>
-          alert('A imagem precisa ser .jpg, .png, .jpeg ou .gif')
-        </script>";
       } elseif ($_GET["error"] == "errorUnknown" ) {
         echo "<script>
-          alert('Ocorreu um erro no produto, por favor informar ao suporte!')
+          alert('Ocorreu um erro na conta, por favor informar ao suporte!')
         </script>";
       }
     }
