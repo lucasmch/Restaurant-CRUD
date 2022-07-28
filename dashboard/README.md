@@ -30,10 +30,10 @@ Um projeto com o objetivo de permitir empresas apresentarem seu produto e conseg
 Aqui o usuario pode adicionar todos os produtos, categorias. informações da loja e administradores que terão acesso a esse painel.
 <br><br>
 
-## :memo: Licença
 
 ## :memo: Creditos
 - Desenvolvimento e funcionamento: [LucasMCH](https://github.com/lucasmch)
 - Dasboard/NUI: [Creative Tim](https://www.creative-tim.com/)
 
+## :memo: Licença
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/lucasmch/Restaurant-CRUD/blob/main/dashboard/LICENSE) para mais detalhes.
