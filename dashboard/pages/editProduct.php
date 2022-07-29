@@ -14,7 +14,10 @@
   <link id="pagestyle" href="../assets/css/dashboard.css?v=1.0.6" rel="stylesheet" />
 </head>
 <?php
+  if (!isset($_SESSION)) session_start();
   require_once("../actions/database.php");
+  require_once("../actions/checkSession.php");
+  
   function filterInput($data) {
     $data = trim($data);
     $data = stripslashes($data);

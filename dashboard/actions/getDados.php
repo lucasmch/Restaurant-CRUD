@@ -5,7 +5,30 @@ $dados = json_decode(file_get_contents('php://input'), true);
 $res = [];
 
 if (!isset($_SESSION)) session_start();
-require_once("./checkSession.php");
+if (!isset($_SESSION['token'])) {
+  if(isset($_COOKIE['token'])) {
+    $token = filterInput($_COOKIE['token']);
+    $sql = "SELECT token, last_update FROM contas WHERE token = '$token' and actived = 1 LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) == 1) {
+      $resultado = mysqli_fetch_assoc($result);
+      if (strtotime(date("Y-m-d H:i:s")) - strtotime($resultado["last_update"]) > 172800) { /* 172800 */
+        setcookie('token', null, -1, '/');
+        http_response_code(401);
+        exit;
+      } else {
+        $_SESSION['token'] = $token;
+      }
+    } else {
+      http_response_code(401);
+      exit;
+    }
+  } else {
+    http_response_code(401);
+    exit;
+  }
+}
 session_destroy();
 
 if(!$dados) {

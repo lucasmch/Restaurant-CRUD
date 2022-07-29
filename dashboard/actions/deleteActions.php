@@ -1,6 +1,9 @@
 <?php
 require_once("../actions/database.php");
 
+if (!isset($_SESSION)) session_start();
+require_once("./checkSession.php");
+
 if(!filterInput($_POST["submit"])) {
   header('Location: ../');
   exit;

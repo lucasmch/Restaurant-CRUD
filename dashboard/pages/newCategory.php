@@ -13,6 +13,11 @@
   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
   <link id="pagestyle" href="../assets/css/dashboard.css?v=1.0.6" rel="stylesheet" />
 </head>
+<?php 
+  if (!isset($_SESSION)) session_start();
+  require_once("../actions/database.php");
+  require_once("../actions/checkSession.php");
+?>
 
 <body class="g-sidenav-show  bg-gray-100">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
