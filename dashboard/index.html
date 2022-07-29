@@ -339,7 +339,8 @@
     ajax.onreadystatechange = function(){
       if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
         let respostaAjax = JSON.parse(ajax.responseText);
-        $("#empName").text(respostaAjax.empName)
+        console.log(respostaAjax)
+        $("#empName").text(respostaAjax[0])
         $(".f-produtos").text(respostaAjax.produtos)
         $(".f-categorias").text(respostaAjax.categorias)
         $(".f-contas").text(respostaAjax.contas)
