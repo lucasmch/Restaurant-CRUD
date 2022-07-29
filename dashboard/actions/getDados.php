@@ -96,10 +96,14 @@ if($dados == "Dashboard") {
   exit;
 }
 
-$sqlEmp = "SELECT * FROM empresa";
-$resultEmp = mysqli_query($conn, $sqlEmp);
-$rowEmp = mysqli_fetch_assoc($resultEmp);
-$res["empName"] = $rowEmp["nome"];
+if(!isset($_SESSION["empName"])) {
+  $sqlEmp = "SELECT * FROM empresa";
+  $resultEmp = mysqli_query($conn, $sqlEmp);
+  $rowEmp = mysqli_fetch_assoc($resultEmp);
+  $_SESSION["empName"] = $rowEmp["nome"];
+}
+
+$res["empName"] = $_SESSION["empName"];
 
 echo json_encode($res);
 mysqli_close($conn);
