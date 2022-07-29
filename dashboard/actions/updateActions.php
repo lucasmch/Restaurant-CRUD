@@ -57,7 +57,7 @@ if(filterInput($_POST["submit"]) == "updateConfig") {
   /* VALIDAR SE TODOS OS CAMPOS ESTÃO PREENCHIDOS */
   if(!$nome or !$valor or !$categoria or !$descricao){
     if(!$categoria) {
-      header('Location: ../pages/newCategory.php?error=errorCategory');
+      header('Location: ../pages/newCategory?error=errorCategory');
     } else {
       header('Location: ../pages/produtos.html?error=missingArguments');
     }

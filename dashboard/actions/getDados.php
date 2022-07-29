@@ -29,7 +29,6 @@ if (!isset($_SESSION['token'])) {
     exit;
   }
 }
-session_destroy();
 
 if(!$dados) {
   header('Location: ../');

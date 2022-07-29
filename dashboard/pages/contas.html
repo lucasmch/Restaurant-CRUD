@@ -192,7 +192,7 @@
           <div class="card mb-4">
             <div class="card-header pb-0 d-flex justify-content-between">
               <h6>Administradores</h6>
-              <a class="btn text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto badge badge-sm bg-gradient-primary" href="../pages/newAccount.php">Novo Administrador</a>
+              <a class="btn text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto badge badge-sm bg-gradient-primary" href="../pages/newAccount">Novo Administrador</a>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
@@ -261,11 +261,11 @@
             </td>
 
             <td class="align-middle text-center text-sm">
-              <form method="post" action="editAccount.php" enctype="multipart/form-data">
+              <form method="post" action="editAccount" enctype="multipart/form-data">
                 <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
                 <button type="submit" id="btnSubmit" name="submit" value="updateAccount" class="btn btn-link text-secondary font-weight-bold text-xs mb-0"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</button>
               </form>
-              <form method="post" action="../actions/deleteActions.php" enctype="multipart/form-data">
+              <form method="post" action="../actions/deleteActions" enctype="multipart/form-data">
                 <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
                 <button type="submit" id="btnSubmit" name="submit" value="deleteAccount" class="btn btn-link text-danger font-weight-bold text-xs mb-0"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</button>
               </form>

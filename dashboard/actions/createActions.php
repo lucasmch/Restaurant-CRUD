@@ -23,23 +23,23 @@ if(filterInput($_POST["submit"]) == "createProduct") {
   /* VALIDAR SE TODOS OS CAMPOS ESTÃO PREENCHIDOS */
   if(!$nome or !$valor or !$categoria or !$descricao){
     if(!$categoria) {
-      header('Location: ../pages/newCategory.php?error=errorCategory');
+      header('Location: ../pages/newCategory?error=errorCategory');
     } else {
-      header('Location: ../pages/newProduct.php?error=missingArguments');
+      header('Location: ../pages/newProduct?error=missingArguments');
     }
     exit;
   }
 
   /* VALIDAR SE A IMAGEM FOI ENVIADA */
   if(!array_key_exists("image", $_FILES) or $_FILES["image"]["name"] == "" or $_FILES["image"]["name"] == null or getimagesize($_FILES["image"]["tmp_name"]) === false){
-    header('Location: ../pages/newProduct.php?error=noImage');
+    header('Location: ../pages/newProduct?error=noImage');
     exit;
   }
   
   /* VALIDAR A EXTENSÃO DA IMAGEM */
   $imageFileType = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-    header('Location: ../pages/newProduct.php?error=incorrectImage');
+    header('Location: ../pages/newProduct?error=incorrectImage');
     exit;
   }
   
@@ -52,7 +52,7 @@ if(filterInput($_POST["submit"]) == "createProduct") {
     if (!move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
       $sql2 = "DELETE FROM produtos WHERE id = ".$last_id;
       $result2 = mysqli_query($conn, $sql2);
-      header('Location: ../pages/newProduct.php?error=errorUnknown');
+      header('Location: ../pages/newProduct?error=errorUnknown');
       exit;
     }
     
@@ -67,20 +67,20 @@ if(filterInput($_POST["submit"]) == "createProduct") {
 
   /* VALIDAR SE TODOS OS CAMPOS ESTÃO PREENCHIDOS */
   if(!$nome or !$descricao){
-    header('Location: ../pages/newCategory.php?error=missingArguments');
+    header('Location: ../pages/newCategory?error=missingArguments');
     exit;
   }
 
   /* VALIDAR SE A IMAGEM FOI ENVIADA */
   if(!array_key_exists("image", $_FILES) or $_FILES["image"]["name"] == "" or $_FILES["image"]["name"] == null or getimagesize($_FILES["image"]["tmp_name"]) === false){
-    header('Location: ../pages/newCategory.php?error=noImage');
+    header('Location: ../pages/newCategory?error=noImage');
     exit;
   }
   
   /* VALIDAR A EXTENSÃO DA IMAGEM */
   $imageFileType = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-    header('Location: ../pages/newCategory.php?error=incorrectImage');
+    header('Location: ../pages/newCategory?error=incorrectImage');
     exit;
   }
   
@@ -93,7 +93,7 @@ if(filterInput($_POST["submit"]) == "createProduct") {
     if (!move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
       $sql2 = "DELETE FROM categorias WHERE id = ".$last_id;
       $result2 = mysqli_query($conn, $sql2);
-      header('Location: ../pages/newCategory.php?error=errorUnknown');
+      header('Location: ../pages/newCategory?error=errorUnknown');
       exit;
     }
     
@@ -115,7 +115,7 @@ if(filterInput($_POST["submit"]) == "createProduct") {
 
   /* VALIDAR SE TODOS OS CAMPOS ESTÃO PREENCHIDOS */
   if(!$nome or !$email or !$senha or !$telefone){
-    header('Location: ../pages/newAccount.php?error=missingArguments');
+    header('Location: ../pages/newAccount?error=missingArguments');
     exit;
   }
 

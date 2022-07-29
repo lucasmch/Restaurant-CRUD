@@ -209,7 +209,7 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
-    <form method="post" action="../actions/updateActions.php" enctype="multipart/form-data">
+    <form method="post" action="../actions/updateActions" enctype="multipart/form-data">
         <div class="row mb-4">
           <div class="col">
             <label class="form-label" for="nome">Nome</label>
