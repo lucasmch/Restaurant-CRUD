@@ -243,47 +243,51 @@
         let respostaAjax = JSON.parse(ajax.responseText);
         $("#empName").text(respostaAjax.empName)
         $.each( respostaAjax, function( key, val ) {
-          let statusProduct = ""
-          if (respostaAjax[key]["actived"] == 1) {
-            statusProduct = '<span class="badge badge-sm bg-gradient-success">ATIVO</span>'
+          if(key == 0) {
+            $("#empName").text(respostaAjax[0])
           } else {
-            statusProduct = '<span class="badge badge-sm bg-gradient-secondary">DESATIVADO</span>'
+            let statusProduct = ""
+            if (respostaAjax[key]["actived"] == 1) {
+              statusProduct = '<span class="badge badge-sm bg-gradient-success">ATIVO</span>'
+            } else {
+              statusProduct = '<span class="badge badge-sm bg-gradient-secondary">DESATIVADO</span>'
+            }
+  
+            $("tbody").append(`<tr>
+                        <td>
+                          <div class="d-flex px-2 py-1">
+                            <div>
+                              <img src="../images/produtos/produto${respostaAjax[key]["id"]}.png?version=${respostaAjax[key]["imageVersion"]}" class="avatar avatar-sm me-3">
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">${respostaAjax[key]["name"]}</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="text-xs font-weight-bold mb-0">R$ ${respostaAjax[key]["value"]}</p>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          ${statusProduct}
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold">${respostaAjax[key]["category"]}</span>
+                        </td>
+                        <td class="align-middle text-center">
+                          <span class="text-secondary text-xs font-weight-bold">${respostaAjax[key]["last_update"]}</span>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                          <form method="post" action="editProduct" enctype="multipart/form-data">
+                            <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
+                            <button type="submit" id="btnSubmit" name="submit" value="updateProduct" class="btn btn-link text-secondary font-weight-bold text-xs mb-0"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</button>
+                          </form>
+                          <form method="post" action="../actions/deleteActions" enctype="multipart/form-data">
+                            <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
+                            <button type="submit" id="btnSubmit" name="submit" value="deleteProduct" class="btn btn-link text-danger font-weight-bold text-xs mb-0"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</button>
+                          </form>
+                        </td>
+                      </tr>`);
           }
-
-          $("tbody").append(`<tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../images/produtos/produto${respostaAjax[key]["id"]}.png?version=${respostaAjax[key]["imageVersion"]}" class="avatar avatar-sm me-3">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">${respostaAjax[key]["name"]}</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">R$ ${respostaAjax[key]["value"]}</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        ${statusProduct}
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">${respostaAjax[key]["category"]}</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">${respostaAjax[key]["last_update"]}</span>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <form method="post" action="editProduct" enctype="multipart/form-data">
-                          <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
-                          <button type="submit" id="btnSubmit" name="submit" value="updateProduct" class="btn btn-link text-secondary font-weight-bold text-xs mb-0"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Editar</button>
-                        </form>
-                        <form method="post" action="../actions/deleteActions" enctype="multipart/form-data">
-                          <input required type="hidden" name="id" id="hiddenField" value="${respostaAjax[key]["id"]}" />
-                          <button type="submit" id="btnSubmit" name="submit" value="deleteProduct" class="btn btn-link text-danger font-weight-bold text-xs mb-0"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Apagar</button>
-                        </form>
-                      </td>
-                    </tr>`);
         });
       } else if (ajax.readyState == 4 && ajax.status >= 400 ) {
         window.location.href='./sign-in.html';

@@ -292,10 +292,14 @@
     ajax.onreadystatechange = function () {
       if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
         let respostaAjax = JSON.parse(ajax.responseText);
-        $("#empName").text(respostaAjax.empName)
+       
+        console.log(respostaAjax)
         
         $.each( respostaAjax, function( key, val ) {
-          $("tbody").append(`<tr>
+          if(key == 0) {
+            $("#empName").text(respostaAjax[0])
+          } else {
+            $("tbody").append(`<tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
@@ -327,6 +331,7 @@
                       </td>
                     </tr>
                     `);
+          }
         });
       } else if (ajax.readyState == 4 && ajax.status >= 400 ) {
         window.location.href='./sign-in.html';

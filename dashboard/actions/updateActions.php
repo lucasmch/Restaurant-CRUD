@@ -35,6 +35,7 @@ if(filterInput($_POST["submit"]) == "updateConfig") {
 
   $sql = "UPDATE empresa SET nome='$nome', email='$email', telefone='$telefone', endereco='$endereco', descricao='$descricao', imageVersion='$imageVersion'";
   if (mysqli_query($conn, $sql)) {
+    $_SESSION["empName"] = $nome;
     header('Location: ../pages/config.html');
     exit;
   } else {

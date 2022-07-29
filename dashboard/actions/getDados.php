@@ -35,6 +35,14 @@ if(!$dados) {
   exit;
 }
 
+if(!isset($_SESSION["empName"])) {
+  $sqlEmp = "SELECT * FROM empresa";
+  $resultEmp = mysqli_query($conn, $sqlEmp);
+  $rowEmp = mysqli_fetch_assoc($resultEmp);
+  $_SESSION["empName"] = $rowEmp["nome"];
+}
+$res[0] = $_SESSION["empName"];
+
 if($dados == "Dashboard") {
   $sql = "SELECT * FROM produtos";
   $result = mysqli_query($conn, $sql);
@@ -96,14 +104,7 @@ if($dados == "Dashboard") {
   exit;
 }
 
-if(!isset($_SESSION["empName"])) {
-  $sqlEmp = "SELECT * FROM empresa";
-  $resultEmp = mysqli_query($conn, $sqlEmp);
-  $rowEmp = mysqli_fetch_assoc($resultEmp);
-  $_SESSION["empName"] = $rowEmp["nome"];
-}
 
-$res["empName"] = $_SESSION["empName"];
 
 echo json_encode($res);
 mysqli_close($conn);

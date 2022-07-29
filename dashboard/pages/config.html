@@ -242,10 +242,8 @@
     ajax.open('post', '../actions/getDados.php');
     ajax.onreadystatechange = function () {
       if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
-        let respostaAjax = JSON.parse(ajax.responseText)[0];
-        console.log(JSON.parse(ajax.responseText))
-        console.log(respostaAjax)
-        $("#empName").text(JSON.parse(ajax.responseText).empName)
+        let respostaAjax = JSON.parse(ajax.responseText)[1];
+        $("#empName").text(JSON.parse(ajax.responseText)[0])
         $("#nome").val(respostaAjax["nome"])
         $("#email").val(respostaAjax["email"])
         $("#telefone").val(respostaAjax["telefone"])
