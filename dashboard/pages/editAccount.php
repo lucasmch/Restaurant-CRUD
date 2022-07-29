@@ -18,6 +18,11 @@
   require_once("../actions/database.php");
   require_once("../actions/checkSession.php");
 
+  $sqlEmp = "SELECT * FROM empresa";
+  $resultEmp = mysqli_query($conn, $sqlEmp);
+  $rowEmp = mysqli_fetch_assoc($resultEmp);
+  $res["empName"] = $rowEmp["nome"];
+
   function filterInput($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -47,7 +52,7 @@
     <div class="text-center sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="../index.html">
-        <span class="ms-1 font-weight-bold">Dashboard</span>
+        <span class="ms-1 font-weight-bold"><?php echo $rowEmp["nome"]; ?></span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">

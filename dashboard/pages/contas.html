@@ -18,7 +18,7 @@
     <div class="text-center sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="../index.html">
-        <span class="ms-1 font-weight-bold">Dashboard</span>
+        <span class="ms-1 font-weight-bold" id="empName"></span>
       </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -240,6 +240,7 @@
     ajax.onreadystatechange = function () {
       if (ajax.readyState == 4 && ajax.status >= 200 && ajax.status <= 400) {
         let respostaAjax = JSON.parse(ajax.responseText);
+        $("#empName").text(respostaAjax.empName)
         $.each( respostaAjax, function( key, val ) {
           let statusAccount = '<span class="badge badge-sm bg-gradient-secondary">DESATIVADO</span>'
           if (respostaAjax[key]["actived"] == 1) {

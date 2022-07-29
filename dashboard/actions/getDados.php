@@ -95,6 +95,12 @@ if($dados == "Dashboard") {
   header('Location: ../');
   exit;
 }
+
+$sqlEmp = "SELECT * FROM empresa";
+$resultEmp = mysqli_query($conn, $sqlEmp);
+$rowEmp = mysqli_fetch_assoc($resultEmp);
+$res["empName"] = $rowEmp["nome"];
+
 echo json_encode($res);
 mysqli_close($conn);
 
