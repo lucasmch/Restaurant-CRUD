@@ -17,11 +17,6 @@
   if (!isset($_SESSION)) session_start();
   require_once("../actions/database.php");
   require_once("../actions/checkSession.php");
-  
-  if (!isset($_COOKIE['login'])) {
-    header('Location: sign-in.html');
-    exit;
-  }
 
   function filterInput($data) {
     $data = trim($data);
