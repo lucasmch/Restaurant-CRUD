@@ -3073,7 +3073,7 @@ blockquote .post_author_info span{
 }
 .open_hour_wrap .or_text span {
 	display: block;
-	font-size: 15px;
+	font-size: 16px;
 	color: #b3b3b3;
 	font-weight: 500;
 }
@@ -3086,7 +3086,7 @@ blockquote .post_author_info span{
 .footer_widget .c_wrap li:last-child {
 	margin-bottom: 0;
 }
-.footer_widget .c_wrap li span {
+.footer_widget .c_wrap li .spanTitle {
 	color: #fff;
 	font-size: 15px;
 	text-transform: uppercase;

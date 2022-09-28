@@ -225,7 +225,7 @@
           </div>
           <div class="col">
             <label class="form-label" for="telefone">Telefone</label>
-            <input required type="number" id="telefone" class="form-control" name="telefone" value="<?php echo $account["telefone"]; ?>" />
+            <input required type="text" id="telefone" class="form-control" name="telefone" value="<?php echo $account["telefone"]; ?>" />
           </div>
         </div>
 
